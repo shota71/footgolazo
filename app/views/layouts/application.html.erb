@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>海外サッカー観戦ch</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <%# ヘッダー要素 #%>
+      <header class="header">
+        <div class="header-logo">footgolazo ～海外サッカー募集掲示板～</div>
+        <div class="header-list">
+          <ul>
+          <%# ログイン状態 #%>
+            <% if @current_user %>
+              <li>
+                <%= link_to("/users/#{@current_user.id}") do %>
+                  <button><%= @current_user.user_name %></button>
+                <% end %>
+              </li>
+              
+              <li>
+                <%= link_to("/posts/new") do %>
+                  <button>投稿</button>
+                <% end %>
+                  
+              </li>
+              <li>
+                <%= link_to("/posts/index") do %>
+                  <button>一覧</button>
+                <% end %>
+              </li>
+            <%# ログインしていない状態 #%>
+            <% else %>
+              <li>
+                <%= link_to("/posts/new") do %>
+                  <button>投稿</button>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to("/posts/index") do %>
+                  <button>一覧</button>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to("/login") do %>
+                  <button>ログイン</button>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        
+      </header>
+      
+        <%= yield %>
+
+      <%# フッター要素　#%>
+      <footer class="footer">
+        <div class="footer-list">
+          <ul>
+            <li>
+              <%= link_to("/about") do %>
+                <button>概要</button>
+              <% end %>
+            </li>
+        </div>
+      </footer>
+  </body>
+</html>

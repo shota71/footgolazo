@@ -1,0 +1,83 @@
+<div class="posts-index">
+    <div class="container">
+        <div class="message">
+            <%= flash[:notice] %>
+        </div>
+
+        <div class="search_form">
+            <%= search_form_for @q, url: search_posts_path do |f| %>
+                <%= f.label :tag_cont, "タグ" %>
+                <%= f.search_field :tag_cont %> 
+                <%= f.submit "検索" %>
+            <% end %>
+        </div>
+
+        
+        <% @posts.each do |post| %>
+            <div class="posts-index-item">
+                <div class="posts-item-name">名前: <%= post.name %></div>
+                <div class="posts-item-userid">ID: <%= post.d_id %></div>
+                <div class="posts-item-tag">タグ: <%= post.tag %></div>
+                <div class="posts-item-content"><%= safe_join(post.content.split("\n"),tag(:br)) %></div>
+                <div class="posts-time">
+                    <time datetime="<%= post.created_at %>">
+                        <%= time_ago_in_words(post.created_at)+"前" %>
+                    </time>
+                </div>
+            </div>
+        <% end %>
+
+        <div class="page">
+            <%= paginate @posts %>
+        </div>
+    
+        <div class="nav">
+            <h3>タグ一覧</h3>
+            <div class="tag-search-form">
+                <%= search_form_for @q, url: search_posts_path do |f| %>
+                            <input id="so-check1" class="acd-check" type="checkbox">
+                            <label class="so-label" for="so-check1">プレミアリーグ</label>
+                            <div class="menu1">
+                                <p><%= f.radio_button :tag_cont, "リヴァプール" %>リヴァプール</p>
+                                <p><%= f.radio_button :tag_cont, "チェルシー" %>チェルシー</p>
+                                <p><%= f.radio_button :tag_cont, "マンチェスターシティ" %>マンチェスターシティ</p>
+                                <p><%= f.radio_button :tag_cont, "マンチェスターユナイテッド" %>マンチェスターユナイテッド</p>
+                                <p><%= f.radio_button :tag_cont, "アーセナル" %>アーセナル</p>
+                                <p><%= f.radio_button :tag_cont, "トッテナムホットスパー" %>トッテナムホットスパー</p>
+                            </div>
+                            <input id="so-check2" class="acd-check" type="checkbox">
+                            <label class="so-label" for="so-check2">ラ・リーガ</label>
+                            <div class="menu2">
+                                <p><%= f.radio_button :tag_cont, "バルセロナ" %>バルセロナ</p>
+                                <p><%= f.radio_button :tag_cont, "レアルマドリード" %>レアルマドリード</p>
+                                <p><%= f.radio_button :tag_cont, "アトレティコマドリー" %>アトレティコマドリー</p>
+                            </div>
+                            <input id="so-check3" class="acd-check" type="checkbox">
+                            <label class="so-label" for="so-check3">セリエA</label>
+                            <div class="menu3">
+                                <p><%= f.radio_button :tag_cont, "インテル" %>インテル</p>
+                                <p><%= f.radio_button :tag_cont, "ユベントス" %>ユベントス</p>
+                                <p><%= f.radio_button :tag_cont, "ローマ" %>ローマ</p>
+                                <p><%= f.radio_button :tag_cont, "ナポリ" %>ナポリ</p>
+                                <p><%= f.radio_button :tag_cont, "アタランタ" %>アタランタ</p>
+                            </div>
+                            <input id="so-check4" class="acd-check" type="checkbox">
+                            <label class="so-label" for="so-check4">ブンデスリーガ</label>
+                            <div class="menu4">
+                                <p><%= f.radio_button :tag_cont, "バイエルン" %>バイエルン</p>
+                                <p><%= f.radio_button :tag_cont, "ドルトムント" %>ドルトムント</p>
+                                <p><%= f.radio_button :tag_cont, "ライプツィヒ" %>ライプツィヒ</p>
+                            </div>
+                            <input id="so-check5" class="acd-check" type="checkbox">
+                            <label class="so-label" for="so-check5">リーグアン</label>
+                            <div class="menu5">
+                                <p><%= f.radio_button :tag_cont, "パリサンジェルマン" %>パリサンジェルマン</p>
+                                <p><%= f.radio_button :tag_cont, "レンヌ" %>レンヌ</p>
+                                <p><%= f.radio_button :tag_cont, "マルセイユ" %>マルセイユ</p>
+                            </div>
+                        <%= f.submit "検索" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

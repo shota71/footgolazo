@@ -1,0 +1,54 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.contatiner{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+/* index ===================================*/
+/* edit ===================================*/
+.message{
+    text-align: center;
+}
+.edit-form-heading{
+    text-align: center;
+}
+.form p{
+    margin: 5px;
+}
+/* show ===================================*/
+.user-logout{
+    text-align: right;  
+}
+.user{
+    text-align: center;
+}
+
+
+/* login_form ===================================*/
+.main-users-login{
+    text-align: center;
+}
+
+.login-form-heading{
+    margin-top: 10%;
+}
+
+.login-form{
+    margin-top: 1%;
+}
+.signup-to{
+    margin-top: 20px;
+}
+
+/* new ===================================*/
+.new-form-heading{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.new-form{
+    margin-top: 1%;
+}

@@ -1,0 +1,23 @@
+<div class="main users-new">
+    <div class="container">
+        <h1 class="new-form-heading">新規登録</h1>
+        <div class="form">
+            <% if @error_message %>
+                <div class="login-form-error">
+                    <%= @error_message %>
+                </div>
+            <% end %>
+
+            <div class="new-form">
+                <%= form_tag('/users/create', method: :post) do %>
+                    <p>ユーザー名</p>
+                    <input name="user_name"></textarea>
+                    <p>パスワード</p>
+                    <input type="password" name="password"></textarea>
+                    <br>
+                    <input type="submit" value="登録">
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

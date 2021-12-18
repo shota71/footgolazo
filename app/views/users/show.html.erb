@@ -1,0 +1,32 @@
+<div class="main user-show">
+    <div class="container">
+        <div class="user-logout">
+            <%= link_to(logout_path, method: :post) do %>
+                <button>ログアウト</button>
+            <% end %>
+        </div>
+        <div class="user">
+            <h2><%= @user.user_name %></h2>
+            <%= link_to("/users/#{@user.id}/edit") do %>
+                <button>編集</button>
+            <% end %>
+        </div>
+
+        <div class="user-posts">
+            <% @user.posts.each do |post| %>
+                <div class="posts-index-item">
+                    <div class="posts-item-name"><%= post.name %></div>
+                    <div class="posts-item-userid"><%= post.d_id %></div>
+                    <div class="posts-item-tag"><%= post.tag %></div>
+                    <div class="posts-item-content"><%= post.content %></div>
+                    <div class="posts-time">
+                        <time class="time" datetime="<%= post.created_at %>">
+                            <%= time_ago_in_words(post.created_at)+"前" %>
+                        </time>
+                    </div>
+                </div>
+            <% end %>
+
+        </div>
+    </div>
+</div>

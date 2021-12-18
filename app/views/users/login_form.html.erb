@@ -1,0 +1,28 @@
+<div class="main-users-login">
+    <div class="container">
+        <h1 class="login-form-heading">ログイン</h1>
+        <%= flash[:notice] %>
+        <div class="login-form">
+            <% if @error_message %>
+                <div class="login-form-error">
+                    <%= @error_message %>
+                </div>
+            <% end %>
+
+            <div class="login-form">
+                <%= form_tag('/login', method: :post) do %>
+                    <p>ユーザーネーム</p>
+                    <input name="user_name" value="<%= @user_name %>"></textarea>
+                    <p>パスワード</p>
+                    <input type="password" name="password" value="<%= @password %>"></textarea>
+                    <br>
+                    <input type="submit" value="登録">
+                <% end %>
+            </div>
+            <div class="signup-to">
+                <p>まだ登録してない場合は</p>
+                <%= link_to("新規登録", "/signup") %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="main posts-new">
+    <div class="container">
+        <h1 class="new-form-heading">募集する</h1>
+        <div class="form">
+            <% if @error_message %>
+                <div class="login-form-error">
+                    <%= @error_message %>
+                </div>
+            <% end %>
+            
+            <%= form_tag('/posts/create', method: :post) do %>
+                <p>ID</p>
+                <input name="d_id" value="<%= @current_user.d_id %>"></textarea>
+                <p><span style="color:red">＊</span>タグ　</p>
+                <input name="tag"></textarea>
+                <p><span style="color:red">＊</span>募集要項　</p>
+                <textarea name="content"></textarea>
+                <br>
+                <input type="submit" value="投稿">
+            <% end %>
+        </div>
+
+        <div class="nav">
+            <ul class="nav-id">
+                <li class="nav-title">ID</li>
+                <li>discordやskypeなどの連絡を取りたいツールのIDを書いてください。</li>
+            </ul>
+            <ul class="nav-tag">
+                <li class="nav-title">タグ</li>
+                <li>応援する方のチーム名を日本語で書いてください。</li>
+            </ul>
+            <ul class="nav-content">
+                <li class="nav-title">募集要項</li>
+                <li>性別、年齢、自己紹介、IDが何のツールのIDかを書いてください。</li>
+            </ul>
+    </div>
+</div>
