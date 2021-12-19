@@ -3,12 +3,15 @@
         <h1 class="login-form-heading">ログイン</h1>
         <%= flash[:notice] %>
         <div class="login-form">
+
+            <%# エラーメッセージ %>
             <% if @error_message %>
                 <div class="login-form-error">
                     <%= @error_message %>
                 </div>
             <% end %>
 
+            <%# ログインフォーム %>
             <div class="login-form">
                 <%= form_tag('/login', method: :post) do %>
                     <p>ユーザーネーム</p>
@@ -19,6 +22,7 @@
                     <input type="submit" value="登録">
                 <% end %>
             </div>
+            <%# 新規登録を促す %>
             <div class="signup-to">
                 <p>まだ登録してない場合は</p>
                 <%= link_to("新規登録", "/signup") %>

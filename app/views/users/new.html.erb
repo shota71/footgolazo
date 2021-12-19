@@ -2,12 +2,15 @@
     <div class="container">
         <h1 class="new-form-heading">新規登録</h1>
         <div class="form">
+
+            <%# エラーメッセージ %>
             <% if @error_message %>
                 <div class="login-form-error">
                     <%= @error_message %>
                 </div>
             <% end %>
 
+            <%# 新規登録フォーム %>
             <div class="new-form">
                 <%= form_tag('/users/create', method: :post) do %>
                     <p>ユーザー名</p>

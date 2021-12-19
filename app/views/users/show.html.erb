@@ -1,10 +1,13 @@
 <div class="main user-show">
     <div class="container">
+        <%# ログアウトボタン %>
         <div class="user-logout">
             <%= link_to(logout_path, method: :post) do %>
                 <button>ログアウト</button>
             <% end %>
         </div>
+
+        <%# ユーザー名と編集ボタン %>
         <div class="user">
             <h2><%= @user.user_name %></h2>
             <%= link_to("/users/#{@user.id}/edit") do %>
@@ -12,6 +15,7 @@
             <% end %>
         </div>
 
+        <%# ユーザーの投稿全表示 %>
         <div class="user-posts">
             <% @user.posts.each do |post| %>
                 <div class="posts-index-item">

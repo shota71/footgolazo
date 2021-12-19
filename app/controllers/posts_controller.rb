@@ -35,7 +35,9 @@ class PostsController < ApplicationController
   end
 
   def search
+    #結果を変数に代入
     @results = @q.result
+    #結果を上から新しい順にソート
     @posts = @results.page(params[:page]).per(8).order("created_at DESC")
   end
 

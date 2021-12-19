@@ -1,6 +1,7 @@
 <div class="search">
     <div class="container">
 
+        <%# タグ検索 %>
         <div class="search_form">
             <%= search_form_for @q, url: search_posts_path do |f| %>
                 <%= f.label :tag_cont, "タグ" %>
@@ -9,6 +10,7 @@
             <% end %>
         </div>
 
+        <%# 検索結果表示 %>
         <div class="search_result">
             <% @posts.each do |post| %>
                 <div class="posts-index-item">
@@ -25,10 +27,12 @@
             <% end %>
         </div>
 
+        <%# ページ数表示 %>
         <div class="page">
             <%= paginate @posts %>
         </div>
 
+        <%# 左側固定要素 %>
         <div class="nav">
             <h3>タグ一覧</h3>
             <div class="tag-search-form">

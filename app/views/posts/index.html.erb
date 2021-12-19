@@ -4,6 +4,7 @@
             <%= flash[:notice] %>
         </div>
 
+        <%# 検索フォーム %>
         <div class="search_form">
             <%= search_form_for @q, url: search_posts_path do |f| %>
                 <%= f.label :tag_cont, "タグ" %>
@@ -12,7 +13,7 @@
             <% end %>
         </div>
 
-        
+        <%# 投稿内容表示 %>
         <% @posts.each do |post| %>
             <div class="posts-index-item">
                 <div class="posts-item-name">名前: <%= post.name %></div>
@@ -27,10 +28,12 @@
             </div>
         <% end %>
 
+        <%# ページ表示 %>
         <div class="page">
             <%= paginate @posts %>
         </div>
     
+        <%# 左側タグ検索要素 %>
         <div class="nav">
             <h3>タグ一覧</h3>
             <div class="tag-search-form">

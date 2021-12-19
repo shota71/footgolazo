@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  #ログインしているユーザのアクセス制限
   before_action :forbid_login_user, { only: [:new, :create, :login_form, :login] }
+  #ログインしていないユーザのアクセス制限
   before_action :ensure_correct_user, { only: [:edit, :update, :show] }
 
   def index
@@ -36,6 +38,7 @@ class UsersController < ApplicationController
       #失敗ならnewに戻る
     else
       @error_message = "空欄があります"
+      @user = User.new(user_name: params[:user_name], password: params[:password])
       render action: :new
     end
   end
@@ -46,6 +49,7 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(user_name: params[:user_name])
     if @user && @user.authenticate(params[:password])
+      #ログイン維持
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to("/posts/index")

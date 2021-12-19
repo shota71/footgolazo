@@ -8,6 +8,7 @@
                 </div>
             <% end %>
             
+            <%# 新規投稿要素 %>
             <%= form_tag('/posts/create', method: :post) do %>
                 <p>ID</p>
                 <input name="d_id" value="<%= @current_user.d_id %>"></textarea>
@@ -20,7 +21,9 @@
             <% end %>
         </div>
 
+        <%# 左側固定ナビゲーション %>
         <div class="nav">
+            <li class="nav-title"><span style="color:red">＊</span>は必須項目です</li>
             <ul class="nav-id">
                 <li class="nav-title">ID</li>
                 <li>discordやskypeなどの連絡を取りたいツールのIDを書いてください。</li>

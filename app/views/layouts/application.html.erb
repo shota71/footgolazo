@@ -16,7 +16,7 @@
         <div class="header-logo">footgolazo ～海外サッカー募集掲示板～</div>
         <div class="header-list">
           <ul>
-          <%# ログイン状態 #%>
+          <%# ログイン状態で表示する内容 #%>
             <% if @current_user %>
               <li>
                 <%= link_to("/users/#{@current_user.id}") do %>
@@ -35,7 +35,7 @@
                   <button>一覧</button>
                 <% end %>
               </li>
-            <%# ログインしていない状態 #%>
+            <%# ログインしていない状態で表示する内容 #%>
             <% else %>
               <li>
                 <%= link_to("/posts/new") do %>
